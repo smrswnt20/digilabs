@@ -1,0 +1,970 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "name": "System Administrator",
+      "fullName": "System Administrator",
+      "email": "admin@tcet.edu.in",
+      "passwordHash": "$2b$10$0Q7U..FWURj4qsk0/w8Nz.zHAIWiLBN60JgAqOAnzkEkuo10IriSm",
+      "role": "ADMIN",
+      "department": "Computer Engineering (Admin)",
+      "isActive": true,
+      "createdAt": "2026-08-01T08:00:00.000Z",
+      "updatedAt": "2026-09-24T17:47:16.106Z",
+      "lastLoginAt": "2026-09-24T17:52:03.356Z",
+      "failedLoginAttempts": 0,
+      "lockedUntil": null
+    },
+    {
+      "id": "usr-faculty-1",
+      "name": "Dr. Priya Kulkarni",
+      "fullName": "Dr. Priya Kulkarni",
+      "email": "priya.kulkarni@tcet.edu.in",
+      "passwordHash": "$2b$10$t7IOfy3NAS3uUZmzN8ixMO1jUjgEXW0kipZYqw/SWxq56Ufcv44A.",
+      "role": "FACULTY",
+      "department": "Department of Computer Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-01T08:30:00.000Z",
+      "updatedAt": "2026-09-24T17:47:16.106Z",
+      "lastLoginAt": "2026-09-24T17:52:03.472Z",
+      "failedLoginAttempts": 0,
+      "lockedUntil": null
+    },
+    {
+      "id": "usr-student-1",
+      "name": "Aarav Mehta",
+      "fullName": "Aarav Mehta",
+      "email": "aarav.mehta@tcet.edu.in",
+      "passwordHash": "$2b$10$XvZQhIi6.uOqgTFVU9uH/.sz.nBI4Eig9YurM6CdpXnA3n9D9Lio.",
+      "role": "STUDENT",
+      "rollNumber": "42",
+      "batch": "SE-A1",
+      "division": "A",
+      "department": "Computer Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-10T10:00:00.000Z",
+      "updatedAt": "2026-09-24T17:47:16.106Z",
+      "lastLoginAt": "2026-09-24T17:52:03.139Z",
+      "failedLoginAttempts": 0,
+      "lockedUntil": null
+    },
+    {
+      "id": "usr-student-2",
+      "name": "Isha Patil",
+      "fullName": "Isha Patil",
+      "email": "isha.patil@tcet.edu.in",
+      "passwordHash": "$2b$10$lndhZlI3vIoIZmxl6qPs3OvEUAa1Zh4uYzuK81b9ZN6tLztbFZX8u",
+      "role": "STUDENT",
+      "rollNumber": "43",
+      "batch": "SE-A1",
+      "division": "A",
+      "department": "Computer Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-10T10:05:00.000Z",
+      "updatedAt": "2026-09-24T17:47:16.106Z",
+      "lastLoginAt": "2026-09-23T14:15:00.000Z",
+      "failedLoginAttempts": 0,
+      "lockedUntil": null
+    },
+    {
+      "id": "usr-student-3",
+      "name": "Rohan Deshmukh",
+      "fullName": "Rohan Deshmukh",
+      "email": "rohan.deshmukh@tcet.edu.in",
+      "passwordHash": "$2b$10$JVYnGlcgNono3j7h79trB.hKuWkhUw2Z8YZM7fzKu9jqFJ5b9Fpo2",
+      "role": "STUDENT",
+      "rollNumber": "44",
+      "batch": "SE-A2",
+      "division": "A",
+      "department": "Computer Engineering",
+      "isActive": true,
+      "createdAt": "2026-08-10T10:10:00.000Z",
+      "updatedAt": "2026-09-24T17:47:16.106Z",
+      "lastLoginAt": "2026-09-22T11:00:00.000Z",
+      "failedLoginAttempts": 0,
+      "lockedUntil": null
+    }
+  ],
+  "practicals": [
+    {
+      "id": 1,
+      "title": "Stack Using Array",
+      "problemStatement": "Develop a Java program to implement a stack data structure using a fixed-size array. The program should be menu-driven and support operations such as push, pop, peek/display and exit.\n\nStack is a LIFO (Last In First Out) data structure. Ensure overflow and underflow conditions are handled correctly.",
+      "requirements": [
+        "Implement stack using a fixed-size array (capacity: 100)",
+        "Support Menu Operation 1: Push (reads element, pushes to stack)",
+        "Support Menu Operation 2: Pop (removes top element and prints value or \"Underflow\" if empty)",
+        "Support Menu Operation 3: Display (prints elements from top to bottom, separated by space)",
+        "Support Menu Operation 4: Exit",
+        "Follow the exact numerical menu input contract for automated evaluation"
+      ],
+      "instructions": "Follow the standard input contract:\nMenu commands:\n1 <val> : Push <val>\n2 : Pop top element\n3 : Display stack contents from top to bottom\n4 : Exit program\n\nPrint elements separated by space on display. For empty stack display or pop underflow, print \"Empty\" or \"Underflow\".",
+      "inputContract": "Input format:\nSequence of integer commands terminated by 4.\nExample:\n1 10\n1 20\n3\n4\nExpected Output:\n20 10",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    static int[] stack = new int[100];\n    static int top = -1;\n\n    public static void push(int val) {\n        if (top >= 99) {\n            System.out.println(\"Overflow\");\n            return;\n        }\n        stack[++top] = val;\n    }\n\n    public static void pop() {\n        if (top < 0) {\n            System.out.println(\"Underflow\");\n            return;\n        }\n        System.out.println(stack[top--]);\n    }\n\n    public static void display() {\n        if (top < 0) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        for (int i = top; i >= 0; i--) {\n            System.out.print(stack[i] + (i == 0 ? \"\" : \" \"));\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int choice = sc.nextInt();\n            if (choice == 1) {\n                int val = sc.nextInt();\n                push(val);\n            } else if (choice == 2) {\n                pop();\n            } else if (choice == 3) {\n                display();\n            } else if (choice == 4) {\n                break;\n            }\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-10-15T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-1-1",
+          "practicalId": 1,
+          "input": "1 10\n1 20\n3\n4\n",
+          "expectedOutput": "20 10",
+          "marks": 2,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-1-2",
+          "practicalId": 1,
+          "input": "1 5\n1 15\n1 25\n2\n3\n4\n",
+          "expectedOutput": "25\n15 5",
+          "marks": 2,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-1-3",
+          "practicalId": 1,
+          "input": "2\n3\n4\n",
+          "expectedOutput": "Underflow\nEmpty",
+          "marks": 2,
+          "isHidden": false,
+          "orderIndex": 3
+        },
+        {
+          "id": "tc-1-4",
+          "practicalId": 1,
+          "input": "1 100\n1 200\n1 300\n2\n2\n3\n4\n",
+          "expectedOutput": "300\n200\n100",
+          "marks": 2,
+          "isHidden": true,
+          "orderIndex": 4
+        },
+        {
+          "id": "tc-1-5",
+          "practicalId": 1,
+          "input": "1 42\n3\n2\n3\n4\n",
+          "expectedOutput": "42\n42\nEmpty",
+          "marks": 2,
+          "isHidden": true,
+          "orderIndex": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Queue Using Array",
+      "problemStatement": "Develop a Java program to implement a linear queue using an array. The program should be menu-driven and support enqueue, dequeue, display and exit operations.\n\nQueue operates on FIFO (First In First Out) principle. Manage the front and rear pointers appropriately.",
+      "requirements": [
+        "Fixed-size array queue with front and rear indices",
+        "Operation 1: Enqueue element",
+        "Operation 2: Dequeue element and print dequeued value or \"Underflow\" if empty",
+        "Operation 3: Display queue from front to rear",
+        "Operation 4: Exit"
+      ],
+      "instructions": "Standard menu:\n1 <val> : Enqueue\n2 : Dequeue\n3 : Display from front to rear\n4 : Exit",
+      "inputContract": "Input:\n1 10\n1 20\n1 30\n3\n4\nExpected Output:\n10 20 30",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    static int[] q = new int[100];\n    static int front = 0;\n    static int rear = -1;\n\n    public static void enqueue(int x) {\n        if (rear >= 99) {\n            System.out.println(\"Overflow\");\n            return;\n        }\n        q[++rear] = x;\n    }\n\n    public static void dequeue() {\n        if (front > rear) {\n            System.out.println(\"Underflow\");\n            return;\n        }\n        System.out.println(q[front++]);\n    }\n\n    public static void display() {\n        if (front > rear) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        for (int i = front; i <= rear; i++) {\n            System.out.print(q[i] + (i == rear ? \"\" : \" \"));\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) {\n                enqueue(sc.nextInt());\n            } else if (ch == 2) {\n                dequeue();\n            } else if (ch == 3) {\n                display();\n            } else if (ch == 4) {\n                break;\n            }\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-10-20T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-2-1",
+          "practicalId": 2,
+          "input": "1 10\n1 20\n1 30\n3\n4\n",
+          "expectedOutput": "10 20 30",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-2-2",
+          "practicalId": 2,
+          "input": "1 100\n2\n2\n4\n",
+          "expectedOutput": "100\nUnderflow",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-2-3",
+          "practicalId": 2,
+          "input": "1 1\n1 2\n2\n1 3\n3\n4\n",
+          "expectedOutput": "1\n2 3",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Circular Queue",
+      "problemStatement": "Develop a Java program to implement a circular queue using an array. The program should be menu-driven and support insertion, deletion and display operations.\n\nCircular queue re-utilizes empty positions created by dequeues using modulo arithmetic: (rear + 1) % size.",
+      "requirements": [
+        "Implement circular queue of capacity 5",
+        "Operation 1: Insert (Enqueue) <val>",
+        "Operation 2: Delete (Dequeue)",
+        "Operation 3: Display elements in circular sequence",
+        "Operation 4: Exit"
+      ],
+      "instructions": "Capacity is 5.\n1 <val> : Enqueue\n2 : Dequeue\n3 : Display\n4 : Exit",
+      "inputContract": "1 10\n1 20\n1 30\n3\n4",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    static final int SIZE = 5;\n    static int[] cq = new int[SIZE];\n    static int front = -1, rear = -1;\n\n    public static void insert(int val) {\n        if ((front == 0 && rear == SIZE - 1) || (rear + 1 == front)) {\n            System.out.println(\"Overflow\");\n            return;\n        }\n        if (front == -1) {\n            front = rear = 0;\n        } else if (rear == SIZE - 1 && front != 0) {\n            rear = 0;\n        } else {\n            rear++;\n        }\n        cq[rear] = val;\n    }\n\n    public static void delete() {\n        if (front == -1) {\n            System.out.println(\"Underflow\");\n            return;\n        }\n        int val = cq[front];\n        if (front == rear) {\n            front = rear = -1;\n        } else if (front == SIZE - 1) {\n            front = 0;\n        } else {\n            front++;\n        }\n        System.out.println(val);\n    }\n\n    public static void display() {\n        if (front == -1) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        if (rear >= front) {\n            for (int i = front; i <= rear; i++) {\n                System.out.print(cq[i] + (i == rear ? \"\" : \" \"));\n            }\n        } else {\n            for (int i = front; i < SIZE; i++) {\n                System.out.print(cq[i] + \" \");\n            }\n            for (int i = 0; i <= rear; i++) {\n                System.out.print(cq[i] + (i == rear ? \"\" : \" \"));\n            }\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) insert(sc.nextInt());\n            else if (ch == 2) delete();\n            else if (ch == 3) display();\n            else if (ch == 4) break;\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-10-25T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-3-1",
+          "practicalId": 3,
+          "input": "1 10\n1 20\n1 30\n3\n4\n",
+          "expectedOutput": "10 20 30",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-3-2",
+          "practicalId": 3,
+          "input": "1 1\n1 2\n1 3\n1 4\n1 5\n1 6\n4\n",
+          "expectedOutput": "Overflow",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-3-3",
+          "practicalId": 3,
+          "input": "1 10\n1 20\n2\n1 30\n1 40\n1 50\n1 60\n3\n4\n",
+          "expectedOutput": "10\n20 30 40 50 60",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Singly Linked List",
+      "problemStatement": "Develop a Java program to implement a singly linked list. The program should be menu-driven and support insertion, deletion, searching and display operations.",
+      "requirements": [
+        "Node structure with integer data and next pointer",
+        "Operation 1: Insert at end <val>",
+        "Operation 2: Delete by value <val> (print \"Deleted\" or \"Not Found\")",
+        "Operation 3: Search <val> (print \"Found\" or \"Not Found\")",
+        "Operation 4: Display elements separated by space (or \"Empty\")",
+        "Operation 5: Exit"
+      ],
+      "instructions": "1 <val> : Insert at end\n2 <val> : Delete value\n3 <val> : Search value\n4 : Display list\n5 : Exit",
+      "inputContract": "1 10\n1 20\n1 30\n3 20\n4\n5",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    static class Node {\n        int data;\n        Node next;\n        Node(int d) { data = d; next = null; }\n    }\n    static Node head = null;\n\n    public static void insert(int val) {\n        Node n = new Node(val);\n        if (head == null) {\n            head = n;\n            return;\n        }\n        Node t = head;\n        while (t.next != null) t = t.next;\n        t.next = n;\n    }\n\n    public static void delete(int val) {\n        if (head == null) {\n            System.out.println(\"Not Found\");\n            return;\n        }\n        if (head.data == val) {\n            head = head.next;\n            System.out.println(\"Deleted\");\n            return;\n        }\n        Node prev = head;\n        while (prev.next != null && prev.next.data != val) {\n            prev = prev.next;\n        }\n        if (prev.next == null) {\n            System.out.println(\"Not Found\");\n        } else {\n            prev.next = prev.next.next;\n            System.out.println(\"Deleted\");\n        }\n    }\n\n    public static void search(int val) {\n        Node t = head;\n        while (t != null) {\n            if (t.data == val) {\n                System.out.println(\"Found\");\n                return;\n            }\n            t = t.next;\n        }\n        System.out.println(\"Not Found\");\n    }\n\n    public static void display() {\n        if (head == null) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        Node t = head;\n        while (t != null) {\n            System.out.print(t.data + (t.next == null ? \"\" : \" \"));\n            t = t.next;\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) insert(sc.nextInt());\n            else if (ch == 2) delete(sc.nextInt());\n            else if (ch == 3) search(sc.nextInt());\n            else if (ch == 4) display();\n            else if (ch == 5) break;\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-10-30T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-4-1",
+          "practicalId": 4,
+          "input": "1 10\n1 20\n1 30\n3 20\n4\n5\n",
+          "expectedOutput": "Found\n10 20 30",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-4-2",
+          "practicalId": 4,
+          "input": "1 5\n1 15\n2 5\n4\n5\n",
+          "expectedOutput": "Deleted\n15",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-4-3",
+          "practicalId": 4,
+          "input": "1 100\n2 999\n3 999\n4\n5\n",
+          "expectedOutput": "Not Found\nNot Found\n100",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Doubly Linked List",
+      "problemStatement": "Develop a Java program to implement a doubly linked list. The program should be menu-driven and support insertion, deletion and display operations.",
+      "requirements": [
+        "Node with prev, data, next",
+        "Operation 1: Insert at end <val>",
+        "Operation 2: Delete by value <val> (prints \"Deleted\" or \"Not Found\")",
+        "Operation 3: Display forward",
+        "Operation 4: Exit"
+      ],
+      "instructions": "1 <val> : Insert\n2 <val> : Delete\n3 : Display\n4 : Exit",
+      "inputContract": "1 10\n1 20\n3\n4",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    static class Node {\n        int data;\n        Node prev, next;\n        Node(int d) { data = d; }\n    }\n    static Node head = null;\n\n    public static void insert(int val) {\n        Node n = new Node(val);\n        if (head == null) {\n            head = n;\n            return;\n        }\n        Node t = head;\n        while (t.next != null) t = t.next;\n        t.next = n;\n        n.prev = t;\n    }\n\n    public static void delete(int val) {\n        if (head == null) {\n            System.out.println(\"Not Found\");\n            return;\n        }\n        Node t = head;\n        while (t != null && t.data != val) t = t.next;\n        if (t == null) {\n            System.out.println(\"Not Found\");\n            return;\n        }\n        if (t.prev != null) t.prev.next = t.next;\n        else head = t.next;\n        if (t.next != null) t.next.prev = t.prev;\n        System.out.println(\"Deleted\");\n    }\n\n    public static void display() {\n        if (head == null) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        Node t = head;\n        while (t != null) {\n            System.out.print(t.data + (t.next == null ? \"\" : \" \"));\n            t = t.next;\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) insert(sc.nextInt());\n            else if (ch == 2) delete(sc.nextInt());\n            else if (ch == 3) display();\n            else if (ch == 4) break;\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-11-05T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-5-1",
+          "practicalId": 5,
+          "input": "1 10\n1 20\n3\n4\n",
+          "expectedOutput": "10 20",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-5-2",
+          "practicalId": 5,
+          "input": "1 1\n1 2\n1 3\n2 2\n3\n4\n",
+          "expectedOutput": "Deleted\n1 3",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-5-3",
+          "practicalId": 5,
+          "input": "1 100\n2 50\n4\n",
+          "expectedOutput": "Not Found",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Binary Search Tree",
+      "problemStatement": "Develop a Java program to implement a Binary Search Tree (BST). The program should be menu-driven and support insertion, searching and traversal operations (Inorder traversal).",
+      "requirements": [
+        "BST node structure with left and right children",
+        "Operation 1: Insert value <val>",
+        "Operation 2: Search value <val> (print \"Found\" or \"Not Found\")",
+        "Operation 3: Inorder traversal (prints sorted order)",
+        "Operation 4: Exit"
+      ],
+      "instructions": "1 <val> : Insert\n2 <val> : Search\n3 : Inorder Traversal\n4 : Exit",
+      "inputContract": "1 50\n1 30\n1 70\n3\n4\nOutput:\n30 50 70",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    static class Node {\n        int data;\n        Node left, right;\n        Node(int d) { data = d; }\n    }\n    static Node root = null;\n\n    static Node insertRec(Node r, int val) {\n        if (r == null) return new Node(val);\n        if (val < r.data) r.left = insertRec(r.left, val);\n        else if (val > r.data) r.right = insertRec(r.right, val);\n        return r;\n    }\n\n    static boolean searchRec(Node r, int val) {\n        if (r == null) return false;\n        if (r.data == val) return true;\n        if (val < r.data) return searchRec(r.left, val);\n        return searchRec(r.right, val);\n    }\n\n    static void inorderRec(Node r) {\n        if (r != null) {\n            inorderRec(r.left);\n            System.out.print(r.data + \" \");\n            inorderRec(r.right);\n        }\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) {\n                root = insertRec(root, sc.nextInt());\n            } else if (ch == 2) {\n                boolean f = searchRec(root, sc.nextInt());\n                System.out.println(f ? \"Found\" : \"Not Found\");\n            } else if (ch == 3) {\n                if (root == null) System.out.println(\"Empty\");\n                else {\n                    inorderRec(root);\n                    System.out.println();\n                }\n            } else if (ch == 4) {\n                break;\n            }\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-11-10T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-6-1",
+          "practicalId": 6,
+          "input": "1 50\n1 30\n1 70\n3\n4\n",
+          "expectedOutput": "30 50 70",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-6-2",
+          "practicalId": 6,
+          "input": "1 20\n1 10\n1 30\n2 10\n2 99\n4\n",
+          "expectedOutput": "Found\nNot Found",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-6-3",
+          "practicalId": 6,
+          "input": "1 15\n1 10\n1 20\n1 8\n1 12\n3\n4\n",
+          "expectedOutput": "8 10 12 15 20",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "AVL Tree",
+      "problemStatement": "Develop a Java program to implement an AVL tree. The program should be menu-driven and demonstrate insertion and the required rotations (LL, RR, LR, RL) while maintaining the AVL balance property.",
+      "requirements": [
+        "Self-balancing binary search tree with height factor calculation",
+        "Implement Left and Right rotations",
+        "Operation 1: Insert <val>",
+        "Operation 2: Inorder traversal",
+        "Operation 3: Exit"
+      ],
+      "instructions": "1 <val> : Insert into AVL\n2 : Inorder Traversal\n3 : Exit",
+      "inputContract": "1 10\n1 20\n1 30\n2\n3\nOutput:\n10 20 30",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    static class Node {\n        int key, height;\n        Node left, right;\n        Node(int d) { key = d; height = 1; }\n    }\n    static Node root = null;\n\n    static int height(Node n) { return n == null ? 0 : n.height; }\n    static int getBalance(Node n) { return n == null ? 0 : height(n.left) - height(n.right); }\n\n    static Node rightRotate(Node y) {\n        Node x = y.left;\n        Node T2 = x.right;\n        x.right = y;\n        y.left = T2;\n        y.height = Math.max(height(y.left), height(y.right)) + 1;\n        x.height = Math.max(height(x.left), height(x.right)) + 1;\n        return x;\n    }\n\n    static Node leftRotate(Node x) {\n        Node y = x.right;\n        Node T2 = y.left;\n        y.left = x;\n        x.right = T2;\n        x.height = Math.max(height(x.left), height(x.right)) + 1;\n        y.height = Math.max(height(y.left), height(y.right)) + 1;\n        return y;\n    }\n\n    static Node insert(Node node, int key) {\n        if (node == null) return new Node(key);\n        if (key < node.key) node.left = insert(node.left, key);\n        else if (key > node.key) node.right = insert(node.right, key);\n        else return node;\n\n        node.height = 1 + Math.max(height(node.left), height(node.right));\n        int balance = getBalance(node);\n\n        if (balance > 1 && key < node.left.key) return rightRotate(node);\n        if (balance < -1 && key > node.right.key) return leftRotate(node);\n        if (balance > 1 && key > node.left.key) {\n            node.left = leftRotate(node.left);\n            return rightRotate(node);\n        }\n        if (balance < -1 && key < node.right.key) {\n            node.right = rightRotate(node.right);\n            return leftRotate(node);\n        }\n        return node;\n    }\n\n    static void inorder(Node r) {\n        if (r != null) {\n            inorder(r.left);\n            System.out.print(r.key + \" \");\n            inorder(r.right);\n        }\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) root = insert(root, sc.nextInt());\n            else if (ch == 2) {\n                if (root == null) System.out.println(\"Empty\");\n                else {\n                    inorder(root);\n                    System.out.println();\n                }\n            } else if (ch == 3) break;\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-11-15T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-7-1",
+          "practicalId": 7,
+          "input": "1 10\n1 20\n1 30\n2\n3\n",
+          "expectedOutput": "10 20 30",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-7-2",
+          "practicalId": 7,
+          "input": "1 30\n1 20\n1 10\n2\n3\n",
+          "expectedOutput": "10 20 30",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-7-3",
+          "practicalId": 7,
+          "input": "1 10\n1 30\n1 20\n2\n3\n",
+          "expectedOutput": "10 20 30",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Breadth First Search (BFS)",
+      "problemStatement": "Develop a Java program to implement Breadth First Search (BFS) for graph traversal. The program should take graph vertices, edges, and the starting node, and print the BFS traversal order.",
+      "requirements": [
+        "Graph representation using adjacency matrix or adjacency list",
+        "Queue-based BFS traversal starting from specified start vertex",
+        "Track visited vertices to prevent infinite cycles",
+        "Output visited nodes separated by space"
+      ],
+      "instructions": "Input Contract:\nFirst line: V (number of vertices, 0 to V-1) and E (number of edges)\nNext E lines: u v (edges)\nLast line: startVertex\nOutput: BFS traversal order",
+      "inputContract": "4 4\n0 1\n0 2\n1 2\n2 3\n0\nOutput:\n0 1 2 3",
+      "starterCode": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (!sc.hasNextInt()) return;\n        int V = sc.nextInt();\n        int E = sc.nextInt();\n\n        List<List<Integer>> adj = new ArrayList<>();\n        for (int i = 0; i < V; i++) adj.add(new ArrayList<>());\n\n        for (int i = 0; i < E; i++) {\n            int u = sc.nextInt();\n            int v = sc.nextInt();\n            adj.get(u).add(v);\n            adj.get(v).add(u);\n        }\n\n        int start = sc.nextInt();\n        boolean[] visited = new boolean[V];\n        Queue<Integer> q = new LinkedList<>();\n\n        visited[start] = true;\n        q.add(start);\n\n        List<Integer> result = new ArrayList<>();\n        while (!q.isEmpty()) {\n            int curr = q.poll();\n            result.add(curr);\n            Collections.sort(adj.get(curr));\n            for (int neighbor : adj.get(curr)) {\n                if (!visited[neighbor]) {\n                    visited[neighbor] = true;\n                    q.add(neighbor);\n                }\n            }\n        }\n\n        for (int i = 0; i < result.size(); i++) {\n            System.out.print(result.get(i) + (i == result.size() - 1 ? \"\" : \" \"));\n        }\n        System.out.println();\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-11-20T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-8-1",
+          "practicalId": 8,
+          "input": "4 4\n0 1\n0 2\n1 2\n2 3\n0\n",
+          "expectedOutput": "0 1 2 3",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-8-2",
+          "practicalId": 8,
+          "input": "5 4\n0 1\n0 2\n1 3\n1 4\n0\n",
+          "expectedOutput": "0 1 2 3 4",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-8-3",
+          "practicalId": 8,
+          "input": "3 3\n0 1\n1 2\n2 0\n1\n",
+          "expectedOutput": "1 0 2",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Depth First Search (DFS)",
+      "problemStatement": "Develop a Java program to implement Depth First Search (DFS) for graph traversal. The program should take graph vertices, edges, and the starting node, and print the DFS traversal order.",
+      "requirements": [
+        "Graph representation using adjacency list",
+        "Recursive or stack-based DFS traversal",
+        "Output DFS traversal path separated by space"
+      ],
+      "instructions": "Input Contract:\nFirst line: V (number of vertices) and E (number of edges)\nNext E lines: u v (edges)\nLast line: startVertex\nOutput: DFS traversal order",
+      "inputContract": "4 4\n0 1\n0 2\n1 2\n2 3\n0\nOutput:\n0 1 2 3",
+      "starterCode": "import java.util.*;\n\npublic class Main {\n    static List<List<Integer>> adj;\n    static boolean[] visited;\n    static List<Integer> order;\n\n    static void dfs(int u) {\n        visited[u] = true;\n        order.add(u);\n        Collections.sort(adj.get(u));\n        for (int v : adj.get(u)) {\n            if (!visited[v]) {\n                dfs(v);\n            }\n        }\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (!sc.hasNextInt()) return;\n        int V = sc.nextInt();\n        int E = sc.nextInt();\n\n        adj = new ArrayList<>();\n        for (int i = 0; i < V; i++) adj.add(new ArrayList<>());\n\n        for (int i = 0; i < E; i++) {\n            int u = sc.nextInt();\n            int v = sc.nextInt();\n            adj.get(u).add(v);\n            adj.get(v).add(u);\n        }\n\n        int start = sc.nextInt();\n        visited = new boolean[V];\n        order = new ArrayList<>();\n\n        dfs(start);\n\n        for (int i = 0; i < order.size(); i++) {\n            System.out.print(order.get(i) + (i == order.size() - 1 ? \"\" : \" \"));\n        }\n        System.out.println();\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-11-25T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-9-1",
+          "practicalId": 9,
+          "input": "4 4\n0 1\n0 2\n1 2\n2 3\n0\n",
+          "expectedOutput": "0 1 2 3",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-9-2",
+          "practicalId": 9,
+          "input": "5 4\n0 1\n0 2\n1 3\n1 4\n0\n",
+          "expectedOutput": "0 1 3 4 2",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-9-3",
+          "practicalId": 9,
+          "input": "3 2\n0 1\n1 2\n2\n",
+          "expectedOutput": "2 1 0",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Java Basics: Data Types, Operators & Control Statements",
+      "problemStatement": "Develop a comprehensive Java program demonstrating core language fundamentals across two sections:\n\nSection A: Data Types and Operators (demonstrate arithmetic, relational, and bitwise evaluation).\nSection B: Control Statements (demonstrate conditional branching and loop iteration).",
+      "requirements": [
+        "Section A: Read operation type 1: perform arithmetic and bitwise operation on two integers",
+        "Section B: Read operation type 2: evaluate conditional status (Positive/Negative/Zero) and generate sequence loop up to N",
+        "Exit on choice 3"
+      ],
+      "instructions": "Menu:\n1 <a> <b> : Compute (a+b), (a*b), (a&b) printed on one line separated by space\n2 <num> : Check conditional (prints \"Positive\", \"Negative\", or \"Zero\") and print 1 to num (if positive)\n3 : Exit",
+      "inputContract": "1 5 3\n2 4\n3\nOutput:\n8 15 1\nPositive 1 2 3 4",
+      "starterCode": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) {\n                int a = sc.nextInt();\n                int b = sc.nextInt();\n                int sum = a + b;\n                int prod = a * b;\n                int bitAnd = a & b;\n                System.out.println(sum + \" \" + prod + \" \" + bitAnd);\n            } else if (ch == 2) {\n                int n = sc.nextInt();\n                if (n > 0) {\n                    System.out.print(\"Positive \");\n                    for (int i = 1; i <= n; i++) {\n                        System.out.print(i + (i == n ? \"\" : \" \"));\n                    }\n                    System.out.println();\n                } else if (n < 0) {\n                    System.out.println(\"Negative\");\n                } else {\n                    System.out.println(\"Zero\");\n                }\n            } else if (ch == 3) {\n                break;\n            }\n        }\n        sc.close();\n    }\n}",
+      "maxMarks": 10,
+      "timeLimitSeconds": 3,
+      "memoryLimitMb": 256,
+      "allowResubmission": true,
+      "deadline": "2026-11-30T23:59:59.000Z",
+      "testCases": [
+        {
+          "id": "tc-10-1",
+          "practicalId": 10,
+          "input": "1 5 3\n3\n",
+          "expectedOutput": "8 15 1",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 1
+        },
+        {
+          "id": "tc-10-2",
+          "practicalId": 10,
+          "input": "2 4\n3\n",
+          "expectedOutput": "Positive 1 2 3 4",
+          "marks": 3,
+          "isHidden": false,
+          "orderIndex": 2
+        },
+        {
+          "id": "tc-10-3",
+          "practicalId": 10,
+          "input": "2 -5\n2 0\n3\n",
+          "expectedOutput": "Negative\nZero",
+          "marks": 4,
+          "isHidden": true,
+          "orderIndex": 3
+        }
+      ]
+    }
+  ],
+  "submissions": [
+    {
+      "id": "sub-demo-1",
+      "studentId": "usr-student-2",
+      "studentName": "Isha Patil",
+      "rollNumber": "43",
+      "batch": "SE-A1",
+      "division": "A",
+      "practicalId": 1,
+      "practicalTitle": "Stack Using Array",
+      "sourceCode": "import java.util.Scanner;\n\npublic class Main {\n    static int[] stack = new int[100];\n    static int top = -1;\n\n    public static void push(int val) {\n        if (top >= 99) {\n            System.out.println(\"Overflow\");\n            return;\n        }\n        stack[++top] = val;\n    }\n\n    public static void pop() {\n        if (top < 0) {\n            System.out.println(\"Underflow\");\n            return;\n        }\n        System.out.println(stack[top--]);\n    }\n\n    public static void display() {\n        if (top < 0) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        for (int i = top; i >= 0; i--) {\n            System.out.print(stack[i] + (i == 0 ? \"\" : \" \"));\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int choice = sc.nextInt();\n            if (choice == 1) {\n                int val = sc.nextInt();\n                push(val);\n            } else if (choice == 2) {\n                pop();\n            } else if (choice == 3) {\n                display();\n            } else if (choice == 4) {\n                break;\n            }\n        }\n        sc.close();\n    }\n}",
+      "status": "EVALUATED",
+      "passedTests": 5,
+      "totalTests": 5,
+      "autoScore": 10,
+      "facultyScore": 10,
+      "finalScore": 10,
+      "facultyRemarks": "Excellent modular structure and clean handling of stack boundaries.",
+      "testResults": [
+        {
+          "testCaseId": "tc-1-1",
+          "orderIndex": 1,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 140
+        },
+        {
+          "testCaseId": "tc-1-2",
+          "orderIndex": 2,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 130
+        },
+        {
+          "testCaseId": "tc-1-3",
+          "orderIndex": 3,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 125
+        },
+        {
+          "testCaseId": "tc-1-4",
+          "orderIndex": 4,
+          "isHidden": true,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 135
+        },
+        {
+          "testCaseId": "tc-1-5",
+          "orderIndex": 5,
+          "isHidden": true,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 120
+        }
+      ],
+      "submittedAt": "2026-09-08T10:30:00.000Z",
+      "evaluatedAt": "2026-09-09T14:15:00.000Z"
+    },
+    {
+      "id": "sub-demo-2",
+      "studentId": "usr-student-3",
+      "studentName": "Rohan Deshmukh",
+      "rollNumber": "44",
+      "batch": "SE-A2",
+      "division": "A",
+      "practicalId": 1,
+      "practicalTitle": "Stack Using Array",
+      "sourceCode": "import java.util.Scanner;\n\npublic class Main {\n    static int[] stack = new int[100];\n    static int top = -1;\n\n    public static void push(int val) {\n        if (top >= 99) {\n            System.out.println(\"Overflow\");\n            return;\n        }\n        stack[++top] = val;\n    }\n\n    public static void pop() {\n        if (top < 0) {\n            System.out.println(\"Underflow\");\n            return;\n        }\n        System.out.println(stack[top--]);\n    }\n\n    public static void display() {\n        if (top < 0) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        for (int i = top; i >= 0; i--) {\n            System.out.print(stack[i] + (i == 0 ? \"\" : \" \"));\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int choice = sc.nextInt();\n            if (choice == 1) {\n                int val = sc.nextInt();\n                push(val);\n            } else if (choice == 2) {\n                pop();\n            } else if (choice == 3) {\n                display();\n            } else if (choice == 4) {\n                break;\n            }\n        }\n        sc.close();\n    }\n}",
+      "status": "SUBMITTED",
+      "passedTests": 4,
+      "totalTests": 5,
+      "autoScore": 8,
+      "facultyScore": null,
+      "finalScore": null,
+      "facultyRemarks": null,
+      "testResults": [
+        {
+          "testCaseId": "tc-1-1",
+          "orderIndex": 1,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 145
+        },
+        {
+          "testCaseId": "tc-1-2",
+          "orderIndex": 2,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 140
+        },
+        {
+          "testCaseId": "tc-1-3",
+          "orderIndex": 3,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 135
+        },
+        {
+          "testCaseId": "tc-1-4",
+          "orderIndex": 4,
+          "isHidden": true,
+          "passed": true,
+          "marksAwarded": 2,
+          "maxMarks": 2,
+          "executionTimeMs": 130
+        },
+        {
+          "testCaseId": "tc-1-5",
+          "orderIndex": 5,
+          "isHidden": true,
+          "passed": false,
+          "marksAwarded": 0,
+          "maxMarks": 2,
+          "executionTimeMs": 150,
+          "error": "Wrong Answer on boundary condition"
+        }
+      ],
+      "submittedAt": "2026-09-09T16:45:00.000Z",
+      "evaluatedAt": null
+    },
+    {
+      "id": "sub-demo-3",
+      "studentId": "usr-student-1",
+      "studentName": "Aarav Mehta",
+      "rollNumber": "42",
+      "batch": "SE-A1",
+      "division": "A",
+      "practicalId": 2,
+      "practicalTitle": "Queue Using Array",
+      "sourceCode": "import java.util.Scanner;\n\npublic class Main {\n    static int[] q = new int[100];\n    static int front = 0;\n    static int rear = -1;\n\n    public static void enqueue(int x) {\n        if (rear >= 99) {\n            System.out.println(\"Overflow\");\n            return;\n        }\n        q[++rear] = x;\n    }\n\n    public static void dequeue() {\n        if (front > rear) {\n            System.out.println(\"Underflow\");\n            return;\n        }\n        System.out.println(q[front++]);\n    }\n\n    public static void display() {\n        if (front > rear) {\n            System.out.println(\"Empty\");\n            return;\n        }\n        for (int i = front; i <= rear; i++) {\n            System.out.print(q[i] + (i == rear ? \"\" : \" \"));\n        }\n        System.out.println();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        while (sc.hasNextInt()) {\n            int ch = sc.nextInt();\n            if (ch == 1) {\n                enqueue(sc.nextInt());\n            } else if (ch == 2) {\n                dequeue();\n            } else if (ch == 3) {\n                display();\n            } else if (ch == 4) {\n                break;\n            }\n        }\n        sc.close();\n    }\n}",
+      "status": "EVALUATED",
+      "passedTests": 3,
+      "totalTests": 3,
+      "autoScore": 10,
+      "facultyScore": 9,
+      "finalScore": 9,
+      "facultyRemarks": "Good implementation. Remember to document time complexities in comments.",
+      "testResults": [
+        {
+          "testCaseId": "tc-2-1",
+          "orderIndex": 1,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 3,
+          "maxMarks": 3,
+          "executionTimeMs": 140
+        },
+        {
+          "testCaseId": "tc-2-2",
+          "orderIndex": 2,
+          "isHidden": false,
+          "passed": true,
+          "marksAwarded": 3,
+          "maxMarks": 3,
+          "executionTimeMs": 135
+        },
+        {
+          "testCaseId": "tc-2-3",
+          "orderIndex": 3,
+          "isHidden": true,
+          "passed": true,
+          "marksAwarded": 4,
+          "maxMarks": 4,
+          "executionTimeMs": 150
+        }
+      ],
+      "submittedAt": "2026-09-07T11:20:00.000Z",
+      "evaluatedAt": "2026-09-08T15:00:00.000Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": "course-csc301",
+      "code": "CSC301",
+      "name": "Data Structures & Algorithms Lab",
+      "department": "Computer Engineering",
+      "semester": 3,
+      "academicYear": "2026-27",
+      "facultyId": "usr-faculty-1",
+      "facultyName": "Dr. Priya Kulkarni",
+      "description": "Core laboratory course covering Stacks, Queues, Linked Lists, Trees, Graphs, Sorting, and Searching implementations in Java.",
+      "isActive": true
+    },
+    {
+      "id": "course-csc402",
+      "code": "CSC402",
+      "name": "Analysis of Algorithms Lab",
+      "department": "Computer Engineering",
+      "semester": 4,
+      "academicYear": "2026-27",
+      "facultyId": "usr-faculty-1",
+      "facultyName": "Dr. Priya Kulkarni",
+      "description": "Advanced algorithmic paradigms including Divide & Conquer, Dynamic Programming, and Greedy approaches.",
+      "isActive": true
+    }
+  ],
+  "batches": [
+    {
+      "id": "batch-se-a1",
+      "name": "SE-A1",
+      "courseId": "course-csc301",
+      "division": "A",
+      "facultyId": "usr-faculty-1",
+      "facultyName": "Dr. Priya Kulkarni",
+      "studentCount": 24,
+      "academicYear": "2026-27"
+    },
+    {
+      "id": "batch-se-a2",
+      "name": "SE-A2",
+      "courseId": "course-csc301",
+      "division": "A",
+      "facultyId": "usr-faculty-1",
+      "facultyName": "Dr. Priya Kulkarni",
+      "studentCount": 24,
+      "academicYear": "2026-27"
+    },
+    {
+      "id": "batch-se-a3",
+      "name": "SE-A3",
+      "courseId": "course-csc301",
+      "division": "A",
+      "facultyId": "usr-faculty-1",
+      "facultyName": "Dr. Priya Kulkarni",
+      "studentCount": 24,
+      "academicYear": "2026-27"
+    }
+  ],
+  "auditLogs": [
+    {
+      "userId": "usr-faculty-1",
+      "userName": "Dr. Priya Kulkarni",
+      "userRole": "FACULTY",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (FACULTY) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftx1n4-jumb",
+      "timestamp": "2026-09-24T17:52:03.472Z"
+    },
+    {
+      "userId": "usr-admin-1",
+      "userName": "System Administrator",
+      "userRole": "ADMIN",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (ADMIN) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftx1jx-8i4x",
+      "timestamp": "2026-09-24T17:52:03.357Z"
+    },
+    {
+      "userId": "usr-faculty-1",
+      "userName": "Dr. Priya Kulkarni",
+      "userRole": "FACULTY",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (FACULTY) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftx1gt-vr4e",
+      "timestamp": "2026-09-24T17:52:03.245Z"
+    },
+    {
+      "userId": "usr-student-1",
+      "userName": "Aarav Mehta",
+      "userRole": "STUDENT",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (STUDENT) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftx1dw-uymc",
+      "timestamp": "2026-09-24T17:52:03.140Z"
+    },
+    {
+      "userId": "usr-faculty-1",
+      "userName": "Dr. Priya Kulkarni",
+      "userRole": "FACULTY",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (FACULTY) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftweh9-s683",
+      "timestamp": "2026-09-24T17:51:33.453Z"
+    },
+    {
+      "userId": "usr-admin-1",
+      "userName": "System Administrator",
+      "userRole": "ADMIN",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (ADMIN) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftwee2-pl59",
+      "timestamp": "2026-09-24T17:51:33.338Z"
+    },
+    {
+      "userId": "usr-faculty-1",
+      "userName": "Dr. Priya Kulkarni",
+      "userRole": "FACULTY",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (FACULTY) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftweba-dtib",
+      "timestamp": "2026-09-24T17:51:33.238Z"
+    },
+    {
+      "userId": "usr-student-1",
+      "userName": "Aarav Mehta",
+      "userRole": "STUDENT",
+      "action": "LOGIN_SUCCESS",
+      "details": "Authenticated via institutional portal (STUDENT) from 127.0.0.1",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "id": "log-muftwe82-jrj6",
+      "timestamp": "2026-09-24T17:51:33.122Z"
+    },
+    {
+      "id": "log-seed-1",
+      "timestamp": "2026-09-24T13:47:15.721Z",
+      "userId": "usr-admin-1",
+      "userName": "Dr. Sanjeev Kumar",
+      "userRole": "admin",
+      "action": "LOGIN_SUCCESS",
+      "details": "System administrator session authenticated via institutional portal",
+      "status": "SUCCESS"
+    },
+    {
+      "id": "log-seed-2",
+      "timestamp": "2026-09-24T14:47:15.722Z",
+      "userId": "usr-faculty-1",
+      "userName": "Prof. Amit Sharma",
+      "userRole": "faculty",
+      "action": "PRACTICAL_UPDATED",
+      "details": "Configured test cases and time limits for Practical 1 (Stack Array)",
+      "status": "SUCCESS"
+    },
+    {
+      "id": "log-seed-3",
+      "timestamp": "2026-09-24T15:47:15.722Z",
+      "userId": "usr-student-1",
+      "userName": "Rahul Sharma",
+      "userRole": "student",
+      "action": "LOGIN_SUCCESS",
+      "details": "Student authenticated from institutional subnet (Batch SE-A1)",
+      "status": "SUCCESS"
+    },
+    {
+      "id": "log-seed-4",
+      "timestamp": "2026-09-24T16:47:15.722Z",
+      "userId": "usr-student-1",
+      "userName": "Rahul Sharma",
+      "userRole": "student",
+      "action": "SUBMISSION_CREATED",
+      "details": "Submitted Java source code for Practical 1 (Stack Using Array). Automated score: 10/10.",
+      "status": "SUCCESS"
+    }
+  ],
+  "resetTokens": []
+}
